@@ -8,8 +8,8 @@
     @{
         var generator = new Random();
         var imageNum = generator.Next(1, 12);
-        var imagePath = $"~/images/{imageNum}.jpg";
-        <p><img src=@imagePath /></p>
+        var imagePath = $"/images/{imageNum}.jpg";
+        <p><img width="75%" src=@imagePath /></p>
     }
         
     
