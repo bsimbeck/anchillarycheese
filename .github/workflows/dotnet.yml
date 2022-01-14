@@ -28,7 +28,7 @@ jobs:
     - name: FTP Deploy
       uses: sand4rt/ftp-deployer@v1.3
       with:
-        sftp: on
+        sftp: true
         # Deployment destination server & path. Formatted as protocol://domain.com:port/full/destination/path/
         host: ${{ secrets.ANCHILLARYCHEESE_SFTP_SERVER }}
         # FTP account username
