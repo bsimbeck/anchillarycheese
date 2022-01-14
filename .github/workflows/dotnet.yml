@@ -36,5 +36,6 @@ jobs:
         password: ${{ secrets.ANCHILLARYCHEESE_SFTP_PASSWORD }}
         # The local folder to copy, defaults to root project folder
         protocol: ftps
+        log-level: verbose
         local-dir: "/home/runner/work/anchillarycheese/anchillarycheese/Anchillary Cheese/Anchillary Cheese/bin/Debug/net6.0/publish/"
         
