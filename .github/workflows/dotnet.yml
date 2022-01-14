@@ -37,3 +37,4 @@ jobs:
         # The local folder to copy, defaults to root project folder
         local-dir: "/home/runner/work/anchillarycheese/anchillarycheese/Anchillary Cheese/Anchillary Cheese/bin/Debug/net6.0/publish/"
         git-ftp-args: --insecure
+        protocol: ftps
