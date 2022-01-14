@@ -24,7 +24,7 @@ jobs:
     - name: Test
       run: dotnet test "./Anchillary Cheese/Anchillary Cheese.sln" -c Release --no-build --verbosity normal
     - name: Publish
-      run: dotnet "./Anchillary Cheese/Anchillary Cheese.sln" -p:PublishProfile="./Anchillary Cheese/Anchillary Cheese/Properties/PublishProfiles/FolderProfile.pubxml"
+      run: dotnet publish "./Anchillary Cheese/Anchillary Cheese.sln" -p:PublishProfile="./Anchillary Cheese/Anchillary Cheese/Properties/PublishProfiles/FolderProfile.pubxml"
     - name: FTP Deploy
       uses: SamKirkland/FTP-Deploy-Action@3.1.1
       with:
