@@ -26,16 +26,15 @@ jobs:
     - name: Publish
       run: dotnet publish "./Anchillary Cheese/Anchillary Cheese.sln" -p:PublishProfile="./Anchillary Cheese/Anchillary Cheese/Properties/PublishProfiles/FolderProfile.pubxml"
     - name: FTP Deploy
-      uses: sand4rt/ftp-deployer@v1.3
+      uses: wangyucode/sftp-upload-action@v1.1
       with:
-        sftp: true
         # Deployment destination server & path. Formatted as protocol://domain.com:port/full/destination/path/
         host: ${{ secrets.ANCHILLARYCHEESE_SFTP_SERVER }}
+        port: 21
         # FTP account username
         username: ${{ secrets.ANCHILLARYCHEESE_SFTP_USERNAME }}
         # FTP account password
         password: ${{ secrets.ANCHILLARYCHEESE_SFTP_PASSWORD }}
         # The local folder to copy, defaults to root project folder
-        local_folder: "/home/runner/work/anchillarycheese/anchillarycheese/Anchillary Cheese/Anchillary Cheese/bin/Debug/net6.0/publish/"
-        pasive: true
+        localDir: "/home/runner/work/anchillarycheese/anchillarycheese/Anchillary Cheese/Anchillary Cheese/bin/Debug/net6.0/publish/"
         
