@@ -35,4 +35,4 @@ jobs:
         # FTP account password
         ftp-password: ${{ secrets.ANCHILLARYCHEESE_SFTP_PASSWORD }}
         # The local folder to copy, defaults to root project folder
-        local-dir: "/home/runner/work/Anchillary Cheese/Anchillary Cheese/bin/Release/net6.0/publish/"
+        local-dir: "/home/runner/work/anchillarycheese/anchillarycheese/Anchillary Cheese/Anchillary Cheese/bin/Debug/net6.0/publish/"
