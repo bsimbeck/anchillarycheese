@@ -26,15 +26,15 @@ jobs:
     - name: Publish
       run: dotnet publish "./Anchillary Cheese/Anchillary Cheese.sln" -p:PublishProfile="./Anchillary Cheese/Anchillary Cheese/Properties/PublishProfiles/FolderProfile.pubxml"
     - name: FTP Deploy
-      uses: SamKirkland/FTP-Deploy-Action@3.1.1
+      uses: SamKirkland/FTP-Deploy-Action@4.2.0
       with:
         # Deployment destination server & path. Formatted as protocol://domain.com:port/full/destination/path/
-        ftp-server: ${{ secrets.ANCHILLARYCHEESE_SFTP_SERVER }}
+        server: ${{ secrets.ANCHILLARYCHEESE_SFTP_SERVER }}
         # FTP account username
-        ftp-username: ${{ secrets.ANCHILLARYCHEESE_SFTP_USERNAME }}
+        username: ${{ secrets.ANCHILLARYCHEESE_SFTP_USERNAME }}
         # FTP account password
-        ftp-password: ${{ secrets.ANCHILLARYCHEESE_SFTP_PASSWORD }}
+        password: ${{ secrets.ANCHILLARYCHEESE_SFTP_PASSWORD }}
         # The local folder to copy, defaults to root project folder
-        local-dir: "/home/runner/work/anchillarycheese/anchillarycheese/Anchillary Cheese/Anchillary Cheese/bin/Debug/net6.0/publish/"
-        git-ftp-args: --insecure
         protocol: ftps
+        local-dir: "/home/runner/work/anchillarycheese/anchillarycheese/Anchillary Cheese/Anchillary Cheese/bin/Debug/net6.0/publish/"
+        
