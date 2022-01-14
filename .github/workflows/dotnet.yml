@@ -18,8 +18,21 @@ jobs:
       with:
         dotnet-version: 6.0.x
     - name: Restore dependencies
-      run: dotnet restore "Anchillary Cheese/Anchillary Cheese/Anchillary Cheese.csprog"
+      run: dotnet restore "./Anchillary Cheese/Anchillary Cheese.sln"
     - name: Build
-      run: dotnet build -c Release --no-restore
+      run: dotnet build "./Anchillary Cheese/Anchillary Cheese.sln" -c Release --no-restore
     - name: Test
-      run: dotnet test -c Release --no-build --verbosity normal
+      run: dotnet test "./Anchillary Cheese/Anchillary Cheese.sln" -c Release --no-build --verbosity normal
+    - name: Publish
+      run: dotnet "./Anchillary Cheese/Anchillary Cheese.sln" -p:PublishProfile="./Anchillary Cheese/Anchillary Cheese/Properties/PublishProfiles/FolderProfile.pubxml"
+    - name: FTP Deploy
+      uses: SamKirkland/FTP-Deploy-Action@3.1.1
+      with:
+        # Deployment destination server & path. Formatted as protocol://domain.com:port/full/destination/path/
+        ftp-server: ${{ secrets.ANCHILLARYCHEESE_SFTP_SERVER }}
+        # FTP account username
+        ftp-username: ${{ secrets.ANCHILLARYCHEESE_SFTP_USERNAME }}
+        # FTP account password
+        ftp-password: ${{ secrets.ANCHILLARYCHEESE_SFTP_PASSWORD }}
+        # The local folder to copy, defaults to root project folder
+        local-dir: "/home/runner/work/Anchillary Cheese/Anchillary Cheese/bin/Release/net6.0/publish/"
